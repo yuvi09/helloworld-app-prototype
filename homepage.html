@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playful and Elegant Webpage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff7eb3, #ff758c);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        header nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #ffdde1;
+        }
+
+        main {
+            flex: 1;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        main h1 {
+            font-size: 2.5rem;
+            color: #ff758c;
+            margin-bottom: 1rem;
+        }
+
+        main p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .link-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .link-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 280px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .link-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .link-card i {
+            font-size: 2rem;
+            color: #ff758c;
+            margin-bottom: 1rem;
+        }
+
+        .link-card a {
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .link-card a:hover {
+            color: #ff758c;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .link-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            header nav {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">My Elegant App</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Features</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Welcome to Your App</h1>
+        <p>A playful and elegant platform to bring your ideas to life.</p>
+
+        <div class="link-cards">
+            <div class="link-card">
+                <i class="fas fa-magic"></i>
+                <a href="#">Try-On Feature</a>
+            </div>
+            <div class="link-card">
+                <i class="fas fa-images"></i>
+                <a href="#">Upload Photos</a>
+            </div>
+            <div class="link-card">
+                <i class="fas fa-user"></i>
+                <a href="#">Profile</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2025 Your App Name. All rights reserved.
+    </footer>
+</body>
+</html>
