@@ -219,6 +219,58 @@
                 max-width: 100%;
             }
         }
+
+        .about-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 50px 20px;
+        background-color: #f8ebe2;
+    }
+
+    .about-container {
+        display: flex;
+        flex-direction: row;
+        max-width: 1200px;
+        width: 100%;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .about-image img {
+        max-width: 300px;
+        width: 100%;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
+    .about-text {
+        flex: 1;
+    }
+
+    .about-text h2 {
+        font-size: 2rem;
+        color: #a67c67;
+        margin-bottom: 15px;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #333;
+        margin-bottom: 15px;
+    }
+
+    @media (max-width: 768px) {
+        .about-container {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+        }
+    }
     </style>
     <script>
         let currentIndex = 0;
@@ -322,6 +374,23 @@
         <div class="carousel-buttons">
             <button onclick="prevItem()">&#9664;</button>
             <button onclick="nextItem()">&#9654;</button>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="/imgs/sofia_bio.jpeg" alt="Owner Image" />
+            </div>
+            <div class="about-text">
+                <h2>About Us</h2>
+                <p>
+                    <strong>FYSTYBROWZ</strong>, located in Walpole, Massachusetts, is your premier destination for all permanent makeup needs. Our mission is dedicated to enhancing your natural beauty and providing you with the confidence you deserve!
+                </p>
+                <p>
+                    I am a bicoastal cosmetic tattoo artist and trainer in Los Angeles and the greater Boston area!
+                </p>
+            </div>
         </div>
     </section>
 
