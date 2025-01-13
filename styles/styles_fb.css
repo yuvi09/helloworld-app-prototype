@@ -192,57 +192,40 @@
     }
 
    /* Horizontal scrolling and compact display for mobile */
+/* Correct text formatting for mobile in carousel */
 @media (max-width: 768px) {
-    .carousel {
-        overflow-x: auto; /* Enables horizontal scrolling */
-        overflow-y: hidden;
-        white-space: nowrap;
-        scroll-snap-type: x mandatory; /* Enables snap-to-item behavior */
-        -webkit-overflow-scrolling: touch;
-        padding: 10px; /* Adds padding for better visuals */
-    }
-
-    .carousel-inner {
-        display: flex;
-        flex-wrap: nowrap; /* Prevents wrapping */
-        gap: 15px; /* Spacing between items */
-    }
-
     .carousel-item {
-        flex: 0 0 auto;
-        min-width: 80%; /* Reduced item width for smaller screens */
-        max-width: 80%;
-        background-color: #fff;
-        padding: 15px;
-        border-radius: 10px;
-        text-align: center;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        scroll-snap-align: center; /* Aligns item to the center of the viewport */
+        flex-direction: column;
+        align-items: center; /* Centers all content */
+        text-align: center; /* Ensures text alignment */
+        padding: 20px; /* Adds padding for spacing */
     }
 
-    .carousel-item .image img {
-        max-width: 100px; /* Smaller image size */
-        height: auto;
-        margin: 0 auto 10px;
+    .carousel-item .text {
+        margin: 10px 0; /* Adds vertical spacing */
     }
 
     .carousel-item .text h2 {
-        font-size: 1.2rem; /* Smaller title font size */
-        margin-bottom: 8px;
+        font-size: 1.5rem; /* Makes title slightly larger */
+        margin-bottom: 10px; /* Adds space below title */
     }
 
     .carousel-item .text p {
-        font-size: 0.9rem; /* Smaller description font size */
-        color: #666;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap; /* Truncate long descriptions */
+        font-size: 1rem; /* Uniform font size for paragraphs */
+        line-height: 1.5; /* Improves readability */
+        color: #333; /* Ensures consistent color */
+        text-align: center; /* Centers text */
+        max-width: 90%; /* Limits paragraph width */
+        margin: 0 auto; /* Centers the paragraph */
     }
 
-    .carousel-buttons {
-        display: none; /* Hides buttons on mobile */
+    .carousel-item .image img {
+        max-width: 150px; /* Adjusts image size */
+        height: auto;
+        margin: 10px 0; /* Adds space above and below image */
     }
 }
+
 
 
     footer {
