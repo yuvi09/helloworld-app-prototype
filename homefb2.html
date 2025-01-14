@@ -40,11 +40,79 @@
             }
         });
 
+        let currentTestimonial = 0;
+
+        function showTestimonial(index) {
+            const testimonials = document.querySelectorAll('.testimonial-item');
+            const totalTestimonials = testimonials.length;
+
+            testimonials.forEach((testimonial, idx) => {
+                testimonial.classList.remove('active');
+                if (idx === index) {
+                    testimonial.classList.add('active');
+                }
+            });
+
+            currentTestimonial = index;
+        }
+
+        function nextTestimonial() {
+            const testimonials = document.querySelectorAll('.testimonial-item');
+            const totalTestimonials = testimonials.length;
+
+            const nextIndex = (currentTestimonial + 1) % totalTestimonials;
+            showTestimonial(nextIndex);
+        }
+
+        function prevTestimonial() {
+            const testimonials = document.querySelectorAll('.testimonial-item');
+            const totalTestimonials = testimonials.length;
+
+            const prevIndex =
+                (currentTestimonial - 1 + totalTestimonials) % totalTestimonials;
+            showTestimonial(prevIndex);
+        }
+
+        // Initialize carousel
+        document.addEventListener('DOMContentLoaded', () => {
+            showTestimonial(0); // Show the first testimonial
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const sliderContainer = document.querySelector('.slider-container');
+            const afterImage = document.querySelector('.slider-image.after');
+            const sliderHandle = document.querySelector('.slider-handle');
+
+            sliderContainer.addEventListener('mousemove', (e) => {
+                const rect = sliderContainer.getBoundingClientRect();
+                const xPos = e.clientX - rect.left;
+                const width = rect.width;
+
+                // Calculate the percentage position of the slider
+                const percentage = Math.max(0, Math.min(1, xPos / width));
+
+                // Adjust the clip-path of the after image
+                afterImage.style.clipPath = `inset(0 ${100 - percentage * 100}% 0 0)`;
+
+                // Position the handle
+                sliderHandle.style.left = `${percentage * 100}%`;
+            });
+
+            sliderContainer.addEventListener('mouseleave', () => {
+                // Reset to the middle when the mouse leaves the container
+                afterImage.style.clipPath = `inset(0 50% 0 0)`;
+                sliderHandle.style.left = '50%';
+            });
+        });
+
     </script>
 </head>
 <body>
     <header>
-        <div class="logo">FYSTYBROWZ</div>
+        <div class="logo-container">
+            <img src="./imgs/FYSTBROWZ_logo1.png" alt="FYSTYBROWZ Logo" class="logo-image" />
+            <div class="logo-text">FYSTYBROWZ</div>
+        </div>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -66,7 +134,7 @@
 
     <section class="services">
         <div class="service-item">
-            <img src="./imgs/mb_icn3.png" alt="Microblading Icon">
+            <img src="./imgs/mb_icn_microblade1.jpg" alt="Microblading Icon">
             <h3>Microblading</h3>
             <p>A semi-permanent cosmetic tattooing technique to enhance your eyebrows.</p>
         </div>
@@ -131,6 +199,41 @@
                 <p>
                     I am a bicoastal cosmetic tattoo artist and trainer in Los Angeles and the greater Boston area!
                 </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="before-after-section">
+        <h2>Before & After</h2>
+        <div class="slider-container">
+            <div class="slider-wrapper">
+                <img src="./imgs/before3.png" alt="Before" class="slider-image before">
+                <img src="./imgs/after3.png" alt="After" class="slider-image after">
+                <div class="slider-handle"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="photos-section">
+        <h2>Our Work</h2>
+        <div class="photos-gallery">
+            <div class="photo-item">
+                <img src="./imgs/work_sp5.jpg" alt="Glamour Photo 1">
+            </div>
+            <div class="photo-item">
+                <img src="./imgs/work_sp_2.jpg" alt="Glamour Photo 2">
+            </div>
+            <div class="photo-item">
+                <img src="./imgs/work_sp_1.jpg" alt="Glamour Photo 3">
+            </div>
+            <div class="photo-item">
+                <img src="./imgs/work_sp3.jpg" alt="Glamour Photo 4">
+            </div>
+            <div class="photo-item">
+                <img src="./imgs/work_sp4.jpg" alt="Glamour Photo 5">
+            </div>
+            <div class="photo-item">
+                <img src="./imgs/work_sp6.jpg" alt="Glamour Photo 6">
             </div>
         </div>
     </section>

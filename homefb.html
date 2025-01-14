@@ -77,11 +77,6 @@
             cursor: pointer;
             font-size: 1rem;
             border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .hero button:hover {
-            background-color: #8e6654;
         }
 
         .services {
@@ -93,147 +88,78 @@
             gap: 20px;
         }
 
-        .service-item {
-            text-align: center;
-            max-width: 300px;
-            flex: 1;
-        }
-
-        .service-item img {
+        .services img {
             width: 100px;
-            height: auto;
             margin-bottom: 10px;
         }
 
-        .service-item h3 {
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-            color: #a67c67;
-        }
-
-        .service-item p {
-            font-size: 1rem;
-            color: #666;
-        }
-
-        .description-section {
+        .about-section {
             display: flex;
+            padding: 50px 20px;
             align-items: center;
-            justify-content: space-between;
-            padding: 40px 20px;
             background-color: #f8ebe2;
         }
 
-        .description-section .text {
-            flex: 1;
-            margin-right: 20px;
+        .testimonials {
+            background-color: #fff;
+            padding: 50px 20px;
+            text-align: center;
         }
 
-        .description-section .text h2 {
+        .testimonials h2 {
             font-size: 2rem;
-            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .testimonials-carousel {
+            display: flex;
+            overflow: hidden;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        .testimonial-item {
+            flex: 0 0 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .testimonial-item.active {
+            opacity: 1;
+        }
+
+        .testimonial-item p {
+            font-size: 1rem;
+            line-height: 1.6;
             margin-bottom: 10px;
         }
 
-        .description-section .text p {
-            font-size: 1rem;
-            color: #666;
+        .testimonial-item .author {
+            font-style: italic;
+            color: #555;
         }
 
-        .description-section .image {
-            flex: 1;
-            max-width: 400px;
+        .carousel-buttons {
+            margin-top: 20px;
         }
 
-        .description-section .image img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 20px;
-        }
-
-        footer p {
-            font-size: 0.9rem;
+        .carousel-buttons button {
+            background-color: #a67c67;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
         @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            nav ul li {
-                display: none;
-            }
-
-            nav ul:after {
-                content: "Bookings";
-                display: block;
-                color: #333;
-                font-weight: 400;
-                font-size: 1rem;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .hero button {
-                font-size: 0.9rem;
-                padding: 8px 16px;
-            }
-
             .services {
                 flex-direction: column;
                 align-items: center;
             }
 
-            .service-item {
-                max-width: 100%;
-            }
-
-            .description-section {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .description-section .text {
-                margin-right: 0;
-                margin-bottom: 20px;
-            }
-
-            .description-section .image {
-                max-width: 100%;
-            }
-        }
-
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .hero button {
-                font-size: 1rem;
-                padding: 10px 20px;
+            .testimonials h2 {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -243,12 +169,11 @@
         <div class="logo">FYSTYBROWZ</div>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Try-On</a></li>
-                <li><a href="#">FAQs</a></li>
-                <li><a href="#">Booking</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -256,50 +181,125 @@
     <section class="hero">
         <h1>Experience Flawless Results</h1>
         <p>Discover the art of precision and beauty with our premium services.</p>
-        <button>Book an Appointment</button>
+        <button>Book Now</button>
     </section>
 
     <section class="services">
         <div class="service-item">
-            <img src="/imgs/mb_icn3.png" alt="Microblading Icon">
+            <img src="./imgs/mb_icn3.png" alt="Microblading Icon">
             <h3>Microblading</h3>
             <p>A semi-permanent cosmetic tattooing technique to enhance your eyebrows.</p>
         </div>
         <div class="service-item">
-            <img src="/imgs/mb_icn_eyelash1.jpg" alt="Eyelash Extensions Icon">
+            <img src="./imgs/mb_icn_eyelash1.jpg" alt="Eyelash Extensions Icon">
             <h3>Eyelash Extensions</h3>
             <p>Luxurious synthetic lashes for a flawless, natural look.</p>
         </div>
         <div class="service-item">
-            <img src="/imgs/mb_icn_makeup1.jpg" alt="Permanent Makeup Icon">
+            <img src="./imgs/mb_icn_makeup1.jpg" alt="Permanent Makeup Icon">
             <h3>Permanent Makeup</h3>
             <p>Enhance facial features with expert cosmetic tattooing techniques.</p>
         </div>
     </section>
 
-    <section class="description-section">
-        <div class="text">
-            <h2>Microblading</h2>
-            <p>Microblading is a semi-permanent cosmetic procedure that enhances the natural shape of your eyebrows. Using precise, hair-like strokes, our experts create beautifully defined and natural-looking brows tailored just for you. Experience confidence and elegance with our personalized microblading service.</p>
+    <section class="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item">
+                <div class="text">
+                    <h2>Microblading</h2>
+                    <p>Microblading is a semi-permanent cosmetic procedure that enhances the natural shape of your eyebrows. Using precise, hair-like strokes, our experts create beautifully defined and natural-looking brows tailored just for you.</p>
+                </div>
+                <div class="image">
+                    <img src="./imgs/sample_brows2.jpg" alt="Microblading">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="text">
+                    <h2>Eyelash Extensions</h2>
+                    <p>Enhance your natural lashes with our luxurious eyelash extensions. Our experts apply synthetic lashes for a flawless, voluminous look that boosts your confidence and style.</p>
+                </div>
+                <div class="image">
+                    <img src="./imgs/sample_brows.avif" alt="Eyelash Extensions">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="text">
+                    <h2>Permanent Makeup</h2>
+                    <p>Permanent makeup enhances facial features, including eyebrows, eyeliner, and lips. Achieve a polished, natural look that lasts, with our professional cosmetic tattooing services.</p>
+                </div>
+                <div class="image">
+                    <img src="./imgs/sample_perm_makeup.png" alt="Permanent Makeup">
+                </div>
+            </div>
         </div>
-        <div class="image">
-            <img src="/imgs/sample_brows2.jpg" alt="Microblading Service Placeholder">
+        <div class="carousel-buttons">
+            <button onclick="prevItem()">&#9664;</button>
+            <button onclick="nextItem()">&#9654;</button>
         </div>
     </section>
 
-    <section class="description-section">
-        <div class="image">
-            <img src="/imgs/sample_brows2.jpg" alt="Microblading Service Placeholder">
+    <section class="about-section">
+        <div>
+            <h2>About Us</h2>
+            <p>FYSTYBROWZ is dedicated to enhancing your natural beauty with expert techniques and artistry. Located in Walpole, Massachusetts, we specialize in microblading, permanent makeup, and more.</p>
         </div>
-        <div class="text">
-            <h2>Eyelash Extensions</h2>
-            <p>Microblading is a semi-permanent cosmetic procedure that enhances the natural shape of your eyebrows. Using precise, hair-like strokes, our experts create beautifully defined and natural-looking brows tailored just for you. Experience confidence and elegance with our personalized microblading service.</p>
+    </section>
+
+    <section class="testimonials">
+        <h2>Our Clients Love Us</h2>
+        <div class="testimonials-carousel">
+            <div class="testimonial-item active">
+                <p>"FYSTYBROWZ exceeded all my expectations! Highly recommended."</p>
+                <p class="author">- Jane Doe</p>
+            </div>
+            <div class="testimonial-item">
+                <p>"The team is professional and attentive. I love my new look!"</p>
+                <p class="author">- John Smith</p>
+            </div>
+            <div class="testimonial-item">
+                <p>"A flawless experience from start to finish. Thank you!"</p>
+                <p class="author">- Lisa Johnson</p>
+            </div>
         </div>
-      
+        <div class="carousel-buttons">
+            <button onclick="prevTestimonial()">&#9664;</button>
+            <button onclick="nextTestimonial()">&#9654;</button>
+        </div>
     </section>
 
     <footer>
         <p>&copy; 2025 FYSTYBROWZ. All rights reserved.</p>
     </footer>
+
+    <script>
+        let currentTestimonial = 0;
+
+        function showTestimonial(index) {
+            const testimonials = document.querySelectorAll('.testimonial-item');
+            testimonials.forEach((testimonial, idx) => {
+                testimonial.classList.remove('active');
+                if (idx === index) {
+                    testimonial.classList.add('active');
+                }
+            });
+        }
+
+        function nextTestimonial() {
+            const testimonials = document.querySelectorAll('.testimonial-item');
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }
+
+        function prevTestimonial() {
+            const testimonials = document.querySelectorAll('.testimonial-item');
+            currentTestimonial =
+                (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showTestimonial(currentTestimonial);
+        });
+    </script>
 </body>
 </html>
