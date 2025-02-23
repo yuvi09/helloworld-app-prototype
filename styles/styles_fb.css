@@ -384,17 +384,10 @@ footer p {
     transform: scale(1.1); /* Adds a zoom-in effect on hover */
 }
 
-
 .before-after-section {
     padding: 50px 20px;
-    background-color: #fff; /* White background */
+    background-color: #fff;
     text-align: center;
-}
-
-.before-after-section h2 {
-    font-size: 2rem;
-    color: #a67c67;
-    margin-bottom: 20px;
 }
 
 .slider-container {
@@ -408,7 +401,8 @@ footer p {
 .slider-wrapper {
     position: relative;
     width: 100%;
-    height: auto;
+    /* Add a fixed aspect ratio container */
+    padding-top: 75%; /* 4:3 aspect ratio - adjust as needed */
 }
 
 .slider-image {
@@ -416,13 +410,17 @@ footer p {
     top: 0;
     left: 0;
     width: 100%;
-    height: auto;
+    height: 100%; /* Change from auto to 100% */
     object-fit: cover;
 }
 
+.slider-image.before {
+    z-index: 1; /* Ensure before image is behind */
+}
+
 .slider-image.after {
-    clip-path: inset(0 50% 0 0); /* Initially show only the right half */
-    transition: clip-path 0.3s ease-in-out;
+    clip-path: inset(0 0 0 50%); /* Changed from (0 50% 0 0) to (0 0 0 50%) */
+    z-index: 2;
 }
 
 .slider-handle {
@@ -430,9 +428,23 @@ footer p {
     top: 0;
     bottom: 0;
     left: 50%;
-    width: 5px;
-    background-color: #a67c67;
+    width: 4px;
+    background-color: #fff; /* Changed to white for better visibility */
     cursor: ew-resize;
     transform: translateX(-50%);
-    z-index: 2;
+    z-index: 3; /* Ensure handle is on top */
+}
+
+/* Add a circle handle for better grabbing */
+.slider-handle::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 50%;
+    border: 3px solid #a67c67;
 }

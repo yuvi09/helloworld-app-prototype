@@ -53,16 +53,11 @@ function prevTestimonial() {
     showTestimonial(prevIndex);
 }
 
+// ... existing code ...
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    // Handle carousel initialization
-    const isMobile = window.innerWidth <= 768;
-    if (!isMobile) {
-        showItem(0); // Only activate JavaScript-controlled carousel on desktop
-    }
-
-    // Initialize testimonials
-    showTestimonial(0);
+    // ... existing carousel and testimonial initialization ...
 
     // Initialize image slider
     const sliderContainer = document.querySelector('.slider-container');
@@ -70,25 +65,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const sliderHandle = document.querySelector('.slider-handle');
 
     if (sliderContainer && afterImage && sliderHandle) {
-        sliderContainer.addEventListener('mousemove', (e) => {
+        // Mouse events
+        const handleSlide = (e) => {
             const rect = sliderContainer.getBoundingClientRect();
-            const xPos = e.clientX - rect.left;
+            let x = e.clientX || (e.touches && e.touches[0].clientX);
+            x = x - rect.left;
             const width = rect.width;
-
-            // Calculate the percentage position of the slider
-            const percentage = Math.max(0, Math.min(1, xPos / width));
-
-            // Adjust the clip-path of the after image
-            afterImage.style.clipPath = `inset(0 ${100 - percentage * 100}% 0 0)`;
-
+        
+            // Calculate the percentage position of the slider (constrain between 0 and 100)
+            const percentage = Math.min(Math.max(0, x / width), 1);
+        
+            // Adjust the clip-path of the after image (changed direction)
+            afterImage.style.clipPath = `inset(0 0 0 ${percentage * 100}%)`;
+        
             // Position the handle
             sliderHandle.style.left = `${percentage * 100}%`;
-        });
+        };
+        
+        // // Update the reset position as well
+        // sliderContainer.addEventListener('mouseleave', () => {
+        //     afterImage.style.clipPath = `inset(0 0 0 50%)`;
+        //     sliderHandle.style.left = '50%';
+        // });
 
-        sliderContainer.addEventListener('mouseleave', () => {
-            // Reset to the middle when the mouse leaves the container
-            afterImage.style.clipPath = `inset(0 50% 0 0)`;
-            sliderHandle.style.left = '50%';
-        });
+        // Mouse events
+        sliderContainer.addEventListener('mousemove', handleSlide);
+        sliderContainer.addEventListener('touchmove', handleSlide);
+
+        // Prevent default touch behavior to avoid scrolling while sliding
+        sliderContainer.addEventListener('touchstart', (e) => e.preventDefault());
+        sliderContainer.addEventListener('touchmove', (e) => e.preventDefault());
     }
 });
