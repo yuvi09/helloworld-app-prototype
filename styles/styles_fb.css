@@ -1,18 +1,19 @@
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Prata', serif;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Prata', serif;
     line-height: 1.6;
-    color: #333;
+    color: #333;    
 }
 
+/* Header - Dark */
 header {
-    background-color: #f8ebe2;
+    background-color: #1a1a1a;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -20,10 +21,8 @@ header {
     position: relative;
 }
 
-header .logo {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #333;
+header .logo, .logo-text {
+    color: #fff;
 }
 
 .logo-container {
@@ -33,15 +32,14 @@ header .logo {
 }
 
 .logo-image {
-    width: 50px; /* Adjust size as needed */
+    width: 50px;
     height: auto;
-    border-radius: 5px; /* Optional: round the edges of the logo */
+    border-radius: 0; /* Changed from 5px to 0 */
 }
 
 .logo-text {
     font-size: 1.5rem;
-    font-weight: 600;
-    color: #333;
+    font-weight: 400;
 }
 
 @media (max-width: 768px) {
@@ -66,55 +64,26 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #333;
+    color: #fff;
     font-weight: 400;
     transition: color 0.3s;
 }
 
 nav ul li a:hover {
-    color: #a67c67;
+    color: #e0e0e0;
 }
 
 .mobile-only {
     display: none;
+    font-weight: 400;
 }
 
-.hero {
-    background-color: #ecd8c6;
-    text-align: center;
-    padding: 50px 20px;
-}
-
-.hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
-.hero button {
-    background-color: #a67c67;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.hero button:hover {
-    background-color: #8e6654;
-}
-
+/* Services section - Light */
 .services {
     display: flex;
     justify-content: space-around;
     padding: 40px 20px;
-    background-color: #fff;
+    background-color: #f5f5f5;
     flex-wrap: wrap;
     gap: 20px;
 }
@@ -134,7 +103,8 @@ nav ul li a:hover {
 .service-item h3 {
     margin-bottom: 10px;
     font-size: 1.5rem;
-    color: #a67c67;
+    color: #1a1a1a;
+    font-weight: 400;
 }
 
 .service-item p {
@@ -142,13 +112,14 @@ nav ul li a:hover {
     color: #666;
 }
 
+/* Carousel section - Light */
 .carousel {
     position: relative;
     width: 100%;
     max-width: 1200px;
     margin: 40px auto;
     overflow: hidden;
-    background-color: #f8ebe2;
+    background-color: #f5f5f5;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -175,8 +146,9 @@ nav ul li a:hover {
 
 .carousel-item .text h2 {
     font-size: 2rem;
-    color: #333;
+    color: #1a1a1a;
     margin-bottom: 10px;
+    font-weight: 400;
 }
 
 .carousel-item .text p {
@@ -192,7 +164,7 @@ nav ul li a:hover {
 .carousel-item .image img {
     width: 100%;
     height: auto;
-    border-radius: 10px;
+    border-radius: 0; /* Changed from 10px to 0 */
 }
 
 .carousel-buttons {
@@ -205,7 +177,7 @@ nav ul li a:hover {
 }
 
 .carousel-buttons button {
-    background-color: #76737118;
+    background-color: rgba(26, 26, 26, 0.7);
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -216,7 +188,7 @@ nav ul li a:hover {
 }
 
 .carousel-buttons button:hover {
-    background-color: #76737118;
+    background-color: rgba(26, 26, 26, 0.9);
 }
 
 /* Horizontal scrolling and compact display for mobile */
@@ -241,7 +213,7 @@ nav ul li a:hover {
 .carousel-item .text p {
     font-size: 1rem; /* Uniform font size for paragraphs */
     line-height: 1.5; /* Improves readability */
-    color: #333; /* Ensures consistent color */
+    color: #666; /* Ensures consistent color */
     text-align: center; /* Centers text */
     max-width: 90%; /* Limits paragraph width */
     margin: 0 auto; /* Centers the paragraph */
@@ -255,25 +227,13 @@ nav ul li a:hover {
 }
 }
 
-
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 20px;
-}
-
-footer p {
-    font-size: 0.9rem;
-}
-
+/* About section - Dark */
 .about-section {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 50px 20px;
-    background-color: #fff;
+    background-color: #1a1a1a;
 }
 
 .about-container {
@@ -288,7 +248,7 @@ footer p {
 .about-image img {
     max-width: 300px;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 0; /* Changed from 10px to 0 */
     object-fit: cover;
 }
 
@@ -298,14 +258,15 @@ footer p {
 
 .about-text h2 {
     font-size: 2rem;
-    color: #a67c67;
+    color: #fff;
     margin-bottom: 15px;
+    font-weight: 400;
 }
 
 .about-text p {
     font-size: 1rem;
     line-height: 1.6;
-    color: #333;
+    color: #e0e0e0;
     margin-bottom: 15px;
 }
 
@@ -318,7 +279,7 @@ footer p {
         display: block;
         font-size: 1rem;
         font-weight: 600;
-        color: #a67c67;
+        color: #fff;
         text-align: center;
         margin-top: 10px;
     }
@@ -347,47 +308,18 @@ footer p {
     }
 }
 
-.photos-section {
-    padding: 50px 20px;
-    background-color: #f8ebe2;
-    text-align: center;
-}
-
-.photos-section h2 {
-    font-size: 2rem;
-    color: #a67c67;
-    margin-bottom: 20px;
-}
-
-.photos-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.photo-item {
-    overflow: hidden;
-    border-radius: 10px;
-}
-
-.photo-item img {
-    width: 100%;
-    height: 250px; /* Fixed height for all images */
-    object-fit: cover; /* Ensures images are cropped to fill the space */
-    border-radius: 10px; /* Keeps the rounded corners consistent */
-    transition: transform 0.3s ease;
-}
-
-.photo-item img:hover {
-    transform: scale(1.1); /* Adds a zoom-in effect on hover */
-}
-
+/* Before & After section - Light */
 .before-after-section {
     padding: 50px 20px;
-    background-color: #fff;
+    background-color: #f5f5f5;
     text-align: center;
+}
+
+.before-after-section h2 {
+    font-size: 2rem;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    font-weight: 400;
 }
 
 .slider-container {
@@ -395,7 +327,7 @@ footer p {
     max-width: 600px;
     margin: 0 auto;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 0; /* Changed from 10px to 0 */
 }
 
 .slider-wrapper {
@@ -445,6 +377,115 @@ footer p {
     width: 40px;
     height: 40px;
     background: #fff;
-    border-radius: 50%;
-    border: 3px solid #a67c67;
+    border-radius: 50%; /* Keeping this circular as it's a UI element */
+    border: 3px solid #1a1a1a;
+}
+
+/* Photos section - Dark */
+.photos-section {
+    padding: 50px 20px;
+    background-color: #1a1a1a;
+    text-align: center;
+}
+
+.photos-section h2 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.photos-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.photo-item {
+    overflow: hidden;
+    border-radius: 0; /* Changed from 10px to 0 */
+}
+
+.photo-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 0; /* Changed from 10px to 0 */
+    transition: transform 0.3s ease;
+}
+
+.photo-item img:hover {
+    transform: scale(1.1); /* Adds a zoom-in effect on hover */
+}
+
+/* Footer - Light */
+footer {
+    background-color: #f5f5f5;
+    color: #1a1a1a;
+    text-align: center;
+    padding: 10px 20px;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+/* Hero section - Dark */
+.hero {
+    background-color: #1a1a1a;
+    text-align: center;
+    padding: 50px 20px;
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 400;
+    color: #fff;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #e0e0e0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero button {
+    background-color: #fff;
+    color: #1a1a1a;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-family: 'Prata', serif;
+}
+
+.hero button:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+/* Add responsive styles for mobile */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        padding: 0 20px;
+    }
+
+    .hero button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
 }
