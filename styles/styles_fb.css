@@ -9,6 +9,7 @@ body {
     font-family: 'Prata', serif;
     line-height: 1.6;
     color: #333;    
+    padding-top: 60px; /* Add padding equal to header height */
 }
 
 /* Header - Dark */
@@ -18,7 +19,11 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
+    position: fixed; /* Change from relative to fixed */
+    width: 100%; /* Ensure it spans full width */
+    top: 0; /* Stick to top */
+    left: 0; /* Align to left edge */
+    z-index: 1000; /* Ensure header stays above other content */
 }
 
 header .logo, .logo-text {
@@ -28,30 +33,15 @@ header .logo, .logo-text {
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 10px; /* Space between logo image and text */
-}
-
-.logo-image {
-    width: 50px;
-    height: auto;
-    border-radius: 0; /* Changed from 5px to 0 */
 }
 
 .logo-text {
     font-size: 1.5rem;
     font-weight: 400;
+    color: #fff;
 }
 
-@media (max-width: 768px) {
-    .logo-text {
-        display: none; /* Hide text for compact headers */
-    }
-
-    .logo-image {
-        width: 40px; /* Reduce logo size */
-    }
-}
-
+/* Desktop navigation */
 nav ul {
     list-style: none;
     display: flex;
@@ -73,9 +63,43 @@ nav ul li a:hover {
     color: #e0e0e0;
 }
 
+/* Hide mobile nav by default */
+.mobile-nav {
+    display: none;
+}
+
+/* Remove old mobile-only class */
 .mobile-only {
     display: none;
-    font-weight: 400;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    /* Hide desktop navigation */
+    nav ul:not(.mobile-nav) {
+        display: none;
+    }
+
+    /* Show mobile navigation */
+    .mobile-nav {
+        display: flex;
+        gap: 15px;
+    }
+
+    .mobile-nav li a {
+        font-size: 0.9rem;
+        color: #fff;
+    }
+
+    /* Ensure logo text is visible on mobile */
+    .logo-text {
+        display: block;
+        font-size: 1.2rem;
+    }
+
+    body {
+        padding-top: 50px; /* Slightly less padding for mobile */
+    }
 }
 
 /* Services section - Light */
@@ -110,6 +134,47 @@ nav ul li a:hover {
 .service-item p {
     font-size: 1rem;
     color: #666;
+}
+
+/* Mobile styles for services section */
+@media (max-width: 768px) {
+    .services {
+        padding: 30px 15px;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .service-item {
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+        text-align: left;
+        padding: 15px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .service-item img {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 0;
+        margin-right: 20px;
+        object-fit: contain;
+    }
+
+    .service-item .service-content {
+        flex: 1;
+    }
+
+    .service-item h3 {
+        font-size: 1.3rem;
+        margin-bottom: 5px;
+    }
+
+    .service-item p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
 }
 
 /* Carousel section - Light */
