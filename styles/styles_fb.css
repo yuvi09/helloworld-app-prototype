@@ -178,14 +178,29 @@ nav ul li a:hover {
 }
 
 /* Carousel section - Light */
+.carousel-section {
+    padding: 20px 20px 20px; /* Increased top padding for more space from About section */
+    background-color: #f5f5f5;
+    text-align: center; /* Ensure everything in section is centered */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem; /* Slightly larger for better hierarchy */
+    color: #1a1a1a;
+    margin-bottom: 20px; /* Increased space between title and carousel */
+    font-weight: 400;
+    position: relative;
+    display: inline-block; /* Helps with centering */
+}
+
 .carousel {
     position: relative;
     width: 100%;
     max-width: 1200px;
-    margin: 40px auto;
+    margin: 0 auto; /* Remove top margin since we now have a section header */
     overflow: hidden;
     background-color: #f5f5f5;
-    border-radius: 10px;
     display: flex;
     align-items: center;
 }
@@ -193,6 +208,7 @@ nav ul li a:hover {
 .carousel-inner {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    width: 100%;
 }
 
 .carousel-item {
@@ -200,36 +216,37 @@ nav ul li a:hover {
     display: flex;
     align-items: center;
     padding: 20px;
-    padding-left: 60px;
-    padding-right: 60px;
+    gap: 40px;
 }
 
 .carousel-item .text {
     flex: 1;
-    margin-right: 20px;
+    max-width: 50%;
 }
 
 .carousel-item .text h2 {
     font-size: 2rem;
     color: #1a1a1a;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     font-weight: 400;
 }
 
 .carousel-item .text p {
     font-size: 1rem;
+    line-height: 1.6;
     color: #666;
 }
 
 .carousel-item .image {
     flex: 1;
-    max-width: 400px;
+    max-width: 50%;
+    height: 400px; /* Fixed height for consistent sizing */
 }
 
 .carousel-item .image img {
     width: 100%;
-    height: auto;
-    border-radius: 0; /* Changed from 10px to 0 */
+    height: 100%;
+    object-fit: cover; /* This will maintain aspect ratio while filling the container */
 }
 
 .carousel-buttons {
@@ -239,57 +256,67 @@ nav ul li a:hover {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    padding: 0 20px;
+    pointer-events: none; /* This ensures clicks go through to the buttons */
 }
 
 .carousel-buttons button {
     background-color: rgba(26, 26, 26, 0.7);
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 15px 20px;
     cursor: pointer;
     font-size: 1rem;
-    border-radius: 5px;
     transition: background-color 0.3s;
+    pointer-events: auto; /* Re-enable clicks on buttons */
 }
 
 .carousel-buttons button:hover {
     background-color: rgba(26, 26, 26, 0.9);
 }
 
-/* Horizontal scrolling and compact display for mobile */
-/* Correct text formatting for mobile in carousel */
+/* Mobile styles for carousel */
 @media (max-width: 768px) {
-.carousel-item {
-    flex-direction: column;
-    align-items: center; /* Centers all content */
-    text-align: center; /* Ensures text alignment */
-    padding: 20px; /* Adds padding for spacing */
-}
+    .carousel-item {
+        flex-direction: column;
+        padding: 30px 20px;
+        gap: 20px;
+    }
 
-.carousel-item .text {
-    margin: 10px 0; /* Adds vertical spacing */
-}
+    .carousel-item .text,
+    .carousel-item .image {
+        max-width: 100%;
+    }
 
-.carousel-item .text h2 {
-    font-size: 1.5rem; /* Makes title slightly larger */
-    margin-bottom: 10px; /* Adds space below title */
-}
+    .carousel-item .image {
+        height: 300px; /* Slightly smaller height for mobile */
+    }
 
-.carousel-item .text p {
-    font-size: 1rem; /* Uniform font size for paragraphs */
-    line-height: 1.5; /* Improves readability */
-    color: #666; /* Ensures consistent color */
-    text-align: center; /* Centers text */
-    max-width: 90%; /* Limits paragraph width */
-    margin: 0 auto; /* Centers the paragraph */
-}
+    .carousel-item .text h2 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
 
-.carousel-item .image img {
-    max-width: 250px; /* Adjusts image size */
-    height: auto;
-    margin: 10px 0; /* Adds space above and below image */
-    align-items: center;
-}
+    .carousel-item .text p {
+        font-size: 0.9rem;
+    }
+
+    .carousel-buttons {
+        padding: 0 10px;
+    }
+
+    .carousel-buttons button {
+        padding: 10px 15px;
+    }
+
+    .carousel-section {
+        padding: 20px 15px 30px; /* Adjusted padding for mobile */
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 5px;
+    }
 }
 
 /* About section - Dark */
@@ -552,5 +579,49 @@ footer p {
     .hero button {
         padding: 12px 25px;
         font-size: 1rem;
+    }
+}
+
+/* CTA Button section */
+.cta-container {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #f5f5f5; /* Match services section background */
+    margin-top: -20px; /* Negative margin to reduce gap with services section */
+}
+
+.cta-button {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 18px 40px;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Prata', serif;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.cta-button:active {
+    transform: translateY(0);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .cta-container {
+        padding: 30px 15px;
+    }
+
+    .cta-button {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+        width: 80%; /* Make button wider on mobile */
+        max-width: 300px; /* But not too wide */
     }
 }
